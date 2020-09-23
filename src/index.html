@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CUBOID FIGHT!</title>
     <script src="js/Button.js" defer></script>
-    <script src="js/Health.js" defer></script>
     <script src="js/Platform.js" defer></script>
     <script src="js/Component.js" defer></script>
+    <script src="js/Health.js" defer></script>
     <script src="js/Player.js" defer></script>
+    <script src="js/controls.js" defer></script>
     <script src="js/index.js" defer></script>
     <link href="css/main.css" type="text/css" rel="stylesheet" />
   </head>
@@ -21,18 +22,18 @@
       context.textAlign = "center";
       var round_number = 1;
       var player1controls = 0 || {
-        left: "s",
-        right: "f",
-        up: "e",
-        down: "d",
-        attack: "q",
+        left: localStorage.getItem("player2left") || "s",
+        right: localStorage.getItem("player2right") || "f",
+        up: localStorage.getItem("player2up") || "e",
+        down: localStorage.getItem("player2down") || "d",
+        attack: localStorage.getItem("player2punch") || "q",
       };
-      var player2controls = 0 || {
-        left: "ArrowLeft",
-        right: "ArrowRight",
-        up: "ArrowUp",
-        down: "ArrowDown",
-        attack: "m",
+      var player2controls = {
+        left: localStorage.getItem("player2left") || "ArrowLeft",
+        right: localStorage.getItem("player2right") || "ArrowRight",
+        up: localStorage.getItem("player2up") || "ArrowUp",
+        down: localStorage.getItem("player2down") || "ArrowDown",
+        attack: localStorage.getItem("player2punch") || "m",
       };
 
       // constants

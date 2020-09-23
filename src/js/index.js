@@ -35,28 +35,24 @@ function startScreen() {
     "40px 'Comic Sans MS'",
     () => {
       clearInterval(interval);
-
-      controls();
     }
   );
 
   canvas.addEventListener("mousemove", (event) => {
     playGameButton.listenMouseMove(event);
-    changeControlsButton.listenMouseMove(event);
   });
 
   canvas.addEventListener("mousedown", (event) => {
     playGameButton.listenMouseDown(event);
-    changeControlsButton.listenMouseDown(event);
   });
 
   canvas.addEventListener("mouseup", (event) => {
     playGameButton.listenMouseUp(event);
-    changeControlsButton.listenMouseUp(event);
   });
 
   var interval = setInterval(() => {
     clear();
+
     context.font = "120px Comic Sans MS";
     context.fillText("Cuboid Fight!", 625, 200, 700, 100);
 

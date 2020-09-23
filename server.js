@@ -5,7 +5,7 @@ app = express();
 
 app.use("/js", express.static("./src/js"));
 app.use("/css", express.static("./src/css"));
-app.use("/images", express.static("./src/images"));
+app.use("/lib", express.static("./src/lib"));
 app.get("/", async (req, res) => {
   res.sendFile(path.join(__dirname + "/./src/index.html"));
 });
