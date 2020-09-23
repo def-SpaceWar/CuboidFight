@@ -1,0 +1,22 @@
+{
+  "name": "jpshackathon2020",
+  "version": "1.0.0",
+  "description": "The JPS Hackathon Project of 2020",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/def-SpaceWar/JPSHackthon2020.git"
+  },
+  "author": "Aryan Ahire, Rithvik Banerjee, Ailesh Verma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/def-SpaceWar/JPSHackthon2020/issues"
+  },
+  "homepage": "https://github.com/def-SpaceWar/JPSHackthon2020#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
