@@ -223,9 +223,9 @@ function game() {
       context.fillStyle = "#000";
       context.font = "120px Comic Sans MS";
       if (winner !== "tie") {
-        context.fillText(`Player ${winner} WINS!`, 625, 300, 700, 100);
+        context.fillText(`Player ${winner} WINS!`, 600, 300, 1000, 100);
       } else {
-        context.fillText(`TIE! Nobody won.`, 625, 300, 700, 100);
+        context.fillText(`TIE! Nobody won.`, 600, 300, 1000, 100);
       }
 
       showScore();
