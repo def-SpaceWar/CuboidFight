@@ -276,8 +276,6 @@ function showScore() {
   context.fillText(`${player1score} - ${player2score}`, 600, 150, 700, 100);
 }
 
-function updateControls() {
-  // TODO: Setup controls link
-}
 
+showControls();
 startScreen();
