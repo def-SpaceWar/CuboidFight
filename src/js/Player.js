@@ -100,14 +100,19 @@ class Player extends Component {
     if (distance <= this.attack_range * this.attack_range) {
       this.other_player.health.health -= this.attack_damage / round_number;
       this.other_player.moving = false;
-      this.other_player.x_speed =
-        (this.other_player.x - this.x) /
-        ((10 * this.other_player.health.health) /
-          this.other_player.health.max_health);
-      this.other_player.y_speed =
+      if ((10 * this.other_player.health.health) / this.other_player.health.max_health <= 0) {
+        this.other_player.x_speed = (this.other_player.x - this.x) / 0.01;
+        this.other_player.y_speed = (this.other_player.y - this.y) / 0.01;
+      } else {
+        this.other_player.x_speed =
+          (this.other_player.x - this.x) /
+          ((10 * this.other_player.health.health) /
+            this.other_player.health.max_health);
+        this.other_player.y_speed =
         (this.other_player.y - this.y) /
         ((10 * this.other_player.health.health) /
           this.other_player.health.max_health);
+       }
     }
   }
 }
