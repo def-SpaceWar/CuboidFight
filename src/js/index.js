@@ -22,22 +22,6 @@ function startScreen() {
     }
   );
 
-  var changeControlsButton = new Button(
-    450,
-    600,
-    350,
-    100,
-    { inactive: "#0ad", active: "#0ef", pressed: "#aff" },
-    25,
-    "#333",
-    "Change Controls",
-    "#000",
-    "40px 'Comic Sans MS'",
-    () => {
-      clearInterval(interval);
-    }
-  );
-
   canvas.addEventListener("mousemove", (event) => {
     playGameButton.listenMouseMove(event);
   });
@@ -58,7 +42,6 @@ function startScreen() {
     context.fillText("Cuboid Fight!", 625, 200, 700, 100);
 
     playGameButton.draw();
-    changeControlsButton.draw();
   }, 20);
 }
 
