@@ -11,3 +11,20 @@ body {
 input {
   font-family: "Comic Sans MS", "Courier New", monospace;
 }
+
+.controlsBox {
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+.controlsBox > div {
+  background-color: #ddd;
+  padding: 1em;
+}
+
+#screenSplit {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  padding: 1em;
+}

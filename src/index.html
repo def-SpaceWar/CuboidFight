@@ -16,98 +16,106 @@
 </head>
 
 <body>
-  <canvas id="canvas" width="1200" height="800"></canvas>
-  <script>
-    // This stuff loads up first
-    const canvas = document.getElementById("canvas");
-    const context = canvas.getContext("2d");
-    context.textAlign = "center";
-    var round_number = 1;
-    var player1controls = 0 || {
-      left: localStorage.getItem("player1left") || "s",
-      right: localStorage.getItem("player1right") || "f",
-      up: localStorage.getItem("player1up") || "e",
-      down: localStorage.getItem("player1down") || "d",
-      attack: localStorage.getItem("player1attack") || "q",
-    };
-    var player2controls = {
-      left: localStorage.getItem("player2left") || "ArrowLeft",
-      right: localStorage.getItem("player2right") || "ArrowRight",
-      up: localStorage.getItem("player2up") || "ArrowUp",
-      down: localStorage.getItem("player2down") || "ArrowDown",
-      attack: localStorage.getItem("player2attack") || "m",
-    };
+  <div id="screenSplit">
+    <canvas id="canvas" width="1200" height="800"></canvas>
+    
+    <div>
+      <p><strong>To make a control and arrow key type "Arrow(Direction)". Such as, "ArrowUp" for the up arrow and for letter
+        keys it is just "a" or "z". (Do not put quotation marks.)</strong></p>
+        
+        <h2>Controls:</h2>
+        
+        <button onclick="resetControls()">Reset Controls</button>
+        
+        <div class="controlsBox">
+          <div>
+            <p>Player 1 Left:</p>
+            <input id="player1left"></input>
+          </div>
+          
+          <div>
+            <p>Player 1 Right:</p>
+            <input id="player1right"></input>
+          </div>
+          
+          <div>
+            <p>Player 1 Up:</p>
+            <input id="player1up"></input>
+          </div>
+          
+          <div>
+            <p>Player 1 Down:</p>
+            <input id="player1down"></input>
+          </div>
+          
+          <div>
+            <p>Player 1 Attack:</p>
+            <input id="player1attack"></input>
+          </div>
+          
+          <div>
+            <p>Player 2 Left:</p>
+            <input id="player2left"></input>
+          </div>
+          
+          <div>
+            <p>Player 2 Right:</p>
+            <input id="player2right"></input>
+          </div>
+          
+          <div>
+            <p>Player 2 Up:</p>
+            <input id="player2up"></input>
+          </div>
+          
+          
+          <div>
+            <p>Player 2 Down:</p>
+            <input id="player2down"></input>
+          </div>
+          
+          <div>
+            <p>Player 2 Attack:</p>
+            <input id="player2attack"></input>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    // constants
-    const DRAG = 0.95;
-    const GRAVITY = 0.35;
-    const JUMP_POWER = 5;
-    const JUMP_SPEED_MARGIN = 10;
-    const MAX_HEALTH = 100;
-    const ATTACK_RANGE = 100;
-    const ATTACK_DAMAGE = 15;
+    <script>
+      // This stuff loads up first
+      const canvas = document.getElementById("canvas");
+      const context = canvas.getContext("2d");
+      context.textAlign = "center";
+      var round_number = 1;
+      var player1controls = 0 || {
+        left: localStorage.getItem("player1left") || "s",
+        right: localStorage.getItem("player1right") || "f",
+        up: localStorage.getItem("player1up") || "e",
+        down: localStorage.getItem("player1down") || "d",
+        attack: localStorage.getItem("player1attack") || "q",
+      };
+      var player2controls = {
+        left: localStorage.getItem("player2left") || "ArrowLeft",
+        right: localStorage.getItem("player2right") || "ArrowRight",
+        up: localStorage.getItem("player2up") || "ArrowUp",
+        down: localStorage.getItem("player2down") || "ArrowDown",
+        attack: localStorage.getItem("player2attack") || "m",
+      };
 
-    function clear() {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-    }
-  </script>
+      // constants
+      const DRAG = 0.95;
+      const GRAVITY = 0.35;
+      const JUMP_POWER = 5;
+      const JUMP_SPEED_MARGIN = 10;
+      const MAX_HEALTH = 100;
+      const ATTACK_RANGE = 100;
+      const ATTACK_DAMAGE = 15;
 
-  <p><strong>To make a control and arrow key type "Arrow(Direction)". Such as, "ArrowUp" for the up arrow and for letter
-      keys it is just "a" or "z". (Do not put quotation marks.)</strong></p>
-
-  <h2>Controls:</h2>
-
-  <button onclick="resetControls()">Reset Controls</button>
-
-  <br>
-
-  <p>Player 1 Left:</p>
-  <input id="player1left"></input>
-
-  <br>
-
-  <p>Player 1 Right:</p>
-  <input id="player1right"></input>
-
-  <br>
-
-  <p>Player 1 Up:</p>
-  <input id="player1up"></input>
-
-  <br>
-
-  <p>Player 1 Down:</p>
-  <input id="player1down"></input>
-
-  <br>
-
-  <p>Player 1 Attack:</p>
-  <input id="player1attack"></input>
-
-  <br>
-
-  <p>Player 2 Left:</p>
-  <input id="player2left"></input>
-
-  <br>
-
-  <p>Player 2 Right:</p>
-  <input id="player2right"></input>
-
-  <br>
-
-  <p>Player 2 Up:</p>
-  <input id="player2up"></input>
-
-  <br>
-
-  <p>Player 2 Down:</p>
-  <input id="player2down"></input>
-
-  <br>
-
-  <p>Player 2 Attack:</p>
-  <input id="player2attack"></input>
+      function clear() {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      }
+    </script>
 </body>
-
+    
 </html>
