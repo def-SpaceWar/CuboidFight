@@ -51,6 +51,7 @@ function startScreen() {
   });
 
   var interval = setInterval(() => {
+    setControls();
     clear();
 
     context.font = "120px Comic Sans MS";
@@ -62,8 +63,11 @@ function startScreen() {
 }
 
 function game() {
+  var lastDownTarget;
+
   winner = "None";
   let wait_frames = 100;
+
   player1 = new Player(
     290,
     100,
@@ -98,14 +102,26 @@ function game() {
     }
   );
 
+  document.addEventListener(
+    "mousedown",
+    function (event) {
+      lastDownTarget = event.target;
+    },
+    false
+  );
+
   document.addEventListener("keydown", (event) => {
-    player1.listenKeyDown(event);
-    player2.listenKeyDown(event);
+    if (lastDownTarget === canvas) {
+      player1.listenKeyDown(event);
+      player2.listenKeyDown(event);
+    }
   });
 
   document.addEventListener("keyup", (event) => {
-    player1.listenKeyUp(event);
-    player2.listenKeyUp(event);
+    if (lastDownTarget === canvas) {
+      player1.listenKeyUp(event);
+      player2.listenKeyUp(event);
+    }
   });
 
   const platforms = [
@@ -119,7 +135,9 @@ function game() {
 
   // Game Loop
   let interval = setInterval(() => {
+    setControls();
     clear();
+
     player1.other_player = player2;
     player2.other_player = player1;
 
@@ -131,6 +149,22 @@ function game() {
 
     player1.health.draw();
     player2.health.draw();
+
+    player1.controls = {
+      left: localStorage.getItem("player1left") || "s",
+      right: localStorage.getItem("player1right") || "f",
+      up: localStorage.getItem("player1up") || "e",
+      down: localStorage.getItem("player1down") || "d",
+      attack: localStorage.getItem("player1attack") || "q",
+    };
+
+    player2.controls = {
+      left: localStorage.getItem("player2left") || "ArrowLeft",
+      right: localStorage.getItem("player2right") || "ArrowRight",
+      up: localStorage.getItem("player2up") || "ArrowUp",
+      down: localStorage.getItem("player2down") || "ArrowDown",
+      attack: localStorage.getItem("player2attack") || "m",
+    };
 
     if (player1.health.health <= 0) {
       if (player2.health.health <= 0) {
@@ -219,7 +253,9 @@ function game() {
     }
 
     var interval = setInterval(() => {
+      setControls();
       clear();
+
       context.fillStyle = "#000";
       context.font = "120px Comic Sans MS";
       if (winner !== "tie") {
@@ -238,6 +274,10 @@ function showScore() {
   context.fillStyle = "#000";
   context.font = "80px Comic Sans MS";
   context.fillText(`${player1score} - ${player2score}`, 600, 150, 700, 100);
+}
+
+function updateControls() {
+  // TODO: Setup controls link
 }
 
 startScreen();

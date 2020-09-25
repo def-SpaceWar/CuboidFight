@@ -3,3 +3,7 @@ canvas {
   background-repeat: no-repeat;
   background-size: 1200px 800px;
 }
+
+body {
+  font-family: "Comic Sans MS", "Courier New", monospace;
+}

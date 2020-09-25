@@ -1,53 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CUBOID FIGHT!</title>
-    <script src="js/Button.js" defer></script>
-    <script src="js/Platform.js" defer></script>
-    <script src="js/Component.js" defer></script>
-    <script src="js/Health.js" defer></script>
-    <script src="js/Player.js" defer></script>
-    <script src="js/controls.js" defer></script>
-    <script src="js/index.js" defer></script>
-    <link href="css/main.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <canvas id="canvas" width="1200" height="800"></canvas>
-    <script>
-      // This stuff loads up first
-      const canvas = document.getElementById("canvas");
-      const context = canvas.getContext("2d");
-      context.textAlign = "center";
-      var round_number = 1;
-      var player1controls = 0 || {
-        left: localStorage.getItem("player2left") || "s",
-        right: localStorage.getItem("player2right") || "f",
-        up: localStorage.getItem("player2up") || "e",
-        down: localStorage.getItem("player2down") || "d",
-        attack: localStorage.getItem("player2punch") || "q",
-      };
-      var player2controls = {
-        left: localStorage.getItem("player2left") || "ArrowLeft",
-        right: localStorage.getItem("player2right") || "ArrowRight",
-        up: localStorage.getItem("player2up") || "ArrowUp",
-        down: localStorage.getItem("player2down") || "ArrowDown",
-        attack: localStorage.getItem("player2punch") || "m",
-      };
 
-      // constants
-      const DRAG = 0.95;
-      const GRAVITY = 0.35;
-      const JUMP_POWER = 5;
-      const JUMP_SPEED_MARGIN = 10;
-      const MAX_HEALTH = 100;
-      const ATTACK_RANGE = 100;
-      const ATTACK_DAMAGE = 15;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CUBOID FIGHT!</title>
+  <script src="js/Button.js" defer></script>
+  <script src="js/Platform.js" defer></script>
+  <script src="js/Component.js" defer></script>
+  <script src="js/Health.js" defer></script>
+  <script src="js/Player.js" defer></script>
+  <script src="js/controls.js" defer></script>
+  <script src="js/index.js" defer></script>
+  <link href="css/main.css" type="text/css" rel="stylesheet" />
+</head>
 
-      function clear() {
-        context.clearRect(0, 0, canvas.width, canvas.height);
-      }
-    </script>
-  </body>
+<body>
+  <canvas id="canvas" width="1200" height="800"></canvas>
+  <script>
+    // This stuff loads up first
+    const canvas = document.getElementById("canvas");
+    const context = canvas.getContext("2d");
+    context.textAlign = "center";
+    var round_number = 1;
+    var player1controls = 0 || {
+      left: localStorage.getItem("player1left") || "s",
+      right: localStorage.getItem("player1right") || "f",
+      up: localStorage.getItem("player1up") || "e",
+      down: localStorage.getItem("player1down") || "d",
+      attack: localStorage.getItem("player1attack") || "q",
+    };
+    var player2controls = {
+      left: localStorage.getItem("player2left") || "ArrowLeft",
+      right: localStorage.getItem("player2right") || "ArrowRight",
+      up: localStorage.getItem("player2up") || "ArrowUp",
+      down: localStorage.getItem("player2down") || "ArrowDown",
+      attack: localStorage.getItem("player2attack") || "m",
+    };
+
+    // constants
+    const DRAG = 0.95;
+    const GRAVITY = 0.35;
+    const JUMP_POWER = 5;
+    const JUMP_SPEED_MARGIN = 10;
+    const MAX_HEALTH = 100;
+    const ATTACK_RANGE = 100;
+    const ATTACK_DAMAGE = 15;
+
+    function clear() {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+
+  <p><strong>To make a control and arrow key type "Arrow(Direction)". Such as, "ArrowUp" for the up arrow and for letter
+      keys it is just "a" or "z". (Do not put quotation marks.)</strong></p>
+
+  <h2>Controls:</h2>
+
+  <button onclick="resetControls()">Reset Controls</button>
+
+  <br>
+
+  <p>Player 1 Left:</p>
+  <input id="player1left"></input>
+
+  <br>
+
+  <p>Player 1 Right:</p>
+  <input id="player1right"></input>
+
+  <br>
+
+  <p>Player 1 Up:</p>
+  <input id="player1up"></input>
+
+  <br>
+
+  <p>Player 1 Down:</p>
+  <input id="player1down"></input>
+
+  <br>
+
+  <p>Player 1 Attack:</p>
+  <input id="player1attack"></input>
+
+  <br>
+
+  <p>Player 2 Left:</p>
+  <input id="player2left"></input>
+
+  <br>
+
+  <p>Player 2 Right:</p>
+  <input id="player2right"></input>
+
+  <br>
+
+  <p>Player 2 Up:</p>
+  <input id="player2up"></input>
+
+  <br>
+
+  <p>Player 2 Down:</p>
+  <input id="player2down"></input>
+
+  <br>
+
+  <p>Player 2 Attack:</p>
+  <input id="player2attack"></input>
+</body>
+
 </html>
