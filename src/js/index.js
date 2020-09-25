@@ -1,7 +1,16 @@
+var lastDownTarget;
 var player, player2, winner;
 var player1score = 0;
 var player2score = 0;
 var winner = "None";
+
+document.addEventListener(
+  "mousedown",
+  function (event) {
+    lastDownTarget = event.target;
+  },
+  false
+);
 
 function startScreen() {
   var playGameButton = new Button(
@@ -46,8 +55,6 @@ function startScreen() {
 }
 
 function game() {
-  var lastDownTarget;
-
   winner = "None";
   let wait_frames = 100;
 
@@ -83,14 +90,6 @@ function game() {
       border_margin: 25,
       border_color: "#333",
     }
-  );
-
-  document.addEventListener(
-    "mousedown",
-    function (event) {
-      lastDownTarget = event.target;
-    },
-    false
   );
 
   document.addEventListener("keydown", (event) => {
