@@ -40,14 +40,21 @@ function resetControls() {
 }
 
 function showControls() {
-  CONTROL_INPUTS.player1left.value = localStorage.getItem("player1left");
-  CONTROL_INPUTS.player1right.value = localStorage.getItem("player1right");
-  CONTROL_INPUTS.player1up.value = localStorage.getItem("player1up");
-  CONTROL_INPUTS.player1down.value = localStorage.getItem("player1down");
-  CONTROL_INPUTS.player1attack.value = localStorage.getItem("player1attack");
-  CONTROL_INPUTS.player2left.value = localStorage.getItem("player2left");
-  CONTROL_INPUTS.player2right.value = localStorage.getItem("player2right");
-  CONTROL_INPUTS.player2up.value = localStorage.getItem("player2up");
-  CONTROL_INPUTS.player2down.value = localStorage.getItem("player2down");
-  CONTROL_INPUTS.player2attack.value = localStorage.getItem("player2attack");
+  CONTROL_INPUTS.player1left.value = localStorage.getItem("player1left") | "s";
+  CONTROL_INPUTS.player1right.value =
+    localStorage.getItem("player1right") | "f";
+  CONTROL_INPUTS.player1up.value = localStorage.getItem("player1up") | "e";
+  CONTROL_INPUTS.player1down.value = localStorage.getItem("player1down") | "d";
+  CONTROL_INPUTS.player1attack.value =
+    localStorage.getItem("player1attack") | "q";
+  CONTROL_INPUTS.player2left.value =
+    localStorage.getItem("player2left") | "ArrowLeft";
+  CONTROL_INPUTS.player2right.value =
+    localStorage.getItem("player2right") | "ArrowRight";
+  CONTROL_INPUTS.player2up.value =
+    localStorage.getItem("player2up") | "ArrowUp";
+  CONTROL_INPUTS.player2down.value =
+    localStorage.getItem("player2down") | "ArrowDown";
+  CONTROL_INPUTS.player2attack.value =
+    localStorage.getItem("player2attack") | "m";
 }
