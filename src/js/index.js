@@ -12,6 +12,20 @@ document.addEventListener(
   false
 );
 
+window.addEventListener(
+  "keydown",
+  (e) => {
+    if (
+      ["ArrowLeft", "ArrowUp", "ArrowRight", "ArrowDown", "Space"].indexOf(
+        e.key
+      ) > -1
+    ) {
+      e.preventDefault();
+    }
+  },
+  false
+);
+
 function startScreen() {
   var playGameButton = new Button(
     500,
@@ -257,7 +271,6 @@ function showScore() {
   context.font = "80px Comic Sans MS";
   context.fillText(`${player1score} - ${player2score}`, 600, 150, 700, 100);
 }
-
 
 showControls();
 startScreen();
